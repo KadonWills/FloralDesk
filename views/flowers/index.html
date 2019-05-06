@@ -1,0 +1,24 @@
+{% extends "layout.html" %} {% block content %}
+<h2>Flowers</h2>
+
+<a href="/new" class="btn btn-primary">Add a Flower</a>
+<hr>
+<div class="">
+
+    {% for f in flowers %}
+
+    <div class="card card-default">
+        <div class="card-header">
+            <a href="/{{f._id}}">
+                <img src="/uploads/{{f.picture}}" alt="{{f.name}}" width="25px" height="25px"> {{f.name}}
+            </a>
+        </div>
+        <div class="card-body">
+            {{f.description}}
+        </div>
+    </div>
+    <br> {% endfor %}
+
+</div>
+
+{% endblock %}

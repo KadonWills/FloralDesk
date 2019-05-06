@@ -1,0 +1,47 @@
+{% extends "layout.html" %} {% block content %}
+
+<form method="POST" action="{{endpoint}}" enctype="multipart/form-data" class="row">
+    <div class="form-group col-sm-12">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{flower.name}}" class="form-control" required>
+    </div>
+
+    <div class="form-group col-sm-12">
+        <label for="sn">Scientific Name:</label>
+        <input type="text" id="sn" name="sn" value="{{flower.sn}}" class="form-control" required>
+    </div>
+
+    <div class="form-group col-sm-6">
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" value="{{flower.color}}" class="form-control" required>
+    </div>
+
+    <div class="form-group" class="col-sm-6">
+        <label for="number">Number:</label>
+        <input type="number" min="1" id="number" name="number" value="{{flower.number}}" class="form-control" required>
+    </div>
+
+    <div class="form-group  col-sm-12">
+        <label for="name">Description :</label>
+        <textarea name="description" id="description" rows="8" cols="80" class="form-control" required>{{flower.description}}</textarea>
+    </div>
+
+    <div class="form-group col-sm-12">
+        <label for="file">Image : </label>
+        <input type="file" id="file" name="file" value="{{flower.picture}}" class="btn btn-primary">
+    </div>
+
+    <div class="form-group col-sm-12">
+        Types : {% for t in types %}
+        <label for="{{t._id}}" class="btn btn-light btn-sm ">
+      <input id="{{t._id}}" type="checkbox" name="types[]" value="{{t._id}}" {% if flower.types.indexOf(t._id) != -1 %}checked{% endif %}>
+      {{t.name}}
+    </label> {% endfor %}
+    </div>
+
+
+    <input type="submit" class="btn btn-primary center-justify" name="" value="Save">
+
+</form>
+
+{% endblock %}

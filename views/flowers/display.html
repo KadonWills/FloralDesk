@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block content %}
+<div id="flower-detail" class="row">
+    <div class="col-md-3 col-sm-12">
+        <img src="/uploads/{{flower.picture}}" alt="{{flower.name}}" style="width: 100%">
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <h2 style="color: {{flower.color}} ">{{flower.name}}<sup><small>#{{flower.number}}</small></sup></h2>
+        <a href="/edit/{{flower._id}}" class="btn btn-default border">Edit</a>
+        <a href="/delete/{{flower._id}}" class="btn btn-danger">Delete</a>
+        <div class="btn btn-primary" onclick="print('flower-detail')">print</div>
+
+        <br>
+
+        <p class="lead ltr ">
+            {{flower.description}}
+        </p>
+
+        <h6>Scientific name: </h6>
+        <u><i>{{flower.sn}}</i></u>
+
+        <br>
+
+        <h6>Types :</h6>
+        {% for t in flower.types %}
+        <a href="/types/{{t.name}}" class=" label label-default btn btn-sm" style="background-color:{{t.color}}; color:white">{{t.name}}</a> {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

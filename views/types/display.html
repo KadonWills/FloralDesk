@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Flower of type <span style="color:{{type.color}}">{{type.name}}</span></h2>
+
+{% for f in flowers %}
+<div class="card card-default">
+  <div class="card-header">
+    <a href="/{{f._id}}">{{f.name}}</a>
+  </div>
+  <div class="card-body">
+    {{f.description}}
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form  method="POST" action="{{endpoint}}" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{t.name}}" class="form-control" required >
+  </div>
+
+  <div class="form-group">
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" value="{{t.color}}" class="form-control" required >
+  </div>
+
+  <input type="submit" class="btn btn-primary" name="" value="Save">
+
+  </form>
+
+  {% for t in types %}
+  <a href="/types/{{t.name}}" class="btn btn-primary" style="background-color:{{t.color}}; color:white">{{t.name}}</a>
+  {% endfor %}
+
+{% endblock %}

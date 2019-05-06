@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>FloralDesk </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="https://cdn.rawgit.com/download/glyphicons/0.1.0/glyphicons.js"></script>
+</head>
+
+<body style="background-image: url('/img/bg.jpg'); background-repeat: no-repeat; background-origin: center; background-size: cover">
+
+    <div class="container" style="opacity: 0.95; background-color: #fff;">
+
+        <a href="/">
+            <h1 class="text-left"> <b>FloralDesk</b></h1>
+        </a>
+        <a href="/logout" class="left-content btn btn-danger">
+            {{icon.logout}} Logout
+        </a>
+
+        <hr> {% block content %}{% endblock %}
+
+        <hr>
+
+        <div class="text-center" style="color: blue; font-weight:bold;">
+            <small>Copyright &copy; SE3-Group IV , 2019</small>
+        </div>
+    </div>
+
+</body>
+
+</html>
